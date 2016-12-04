@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Candlelight by mattlkf</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Candlelight</h1>
+      <h2 class="project-tagline">Rendering a simple candle</h2>
+      <a href="https://github.com/mattlkf/candlelight" class="btn">View on GitHub</a>
+      <a href="https://github.com/mattlkf/candlelight/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/mattlkf/candlelight/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h3>
+<a id="intro" class="anchor" href="#intro" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Intro</h3>
+
+<p>Birthday parties, romantic candlelit dinners, Diwali, religious shrines and altars, Mid-Autumn Festival lanterns... These (and many more) would be incomplete without candles.</p>
+
+<p>For my final project, I want to add support for simple candles to Scotty3D's photorealistic renderer.</p>
+
+<h3>
+<a id="candle-phenomena" class="anchor" href="#candle-phenomena" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Candle phenomena</h3>
+
+<p>However, candles are quite complex. Here are some important phenomena that candles exhibit. I do not expect to implement all of them.</p>
+
+<p><strong>Sub-surface scattering.</strong>
+Wax is translucent, and in photos of candles you can clearly see that the wax directly below the flame glows with the light of the flame.</p>
+
+<p><strong>Convection and Black-body radiation.</strong>
+What gives a candle flame its color and its shape? The yellow part of the flame is emitted by soot particles, which are produced and heated up by the combustion of vaporized wax. The shape of the flame is due to convection: because hot air rises, the vaporized wax rises from the wick as it burns, giving the candle flame its characteristic shape. (In micro-gravity, this does not occur, so a spherical flame appears instead).</p>
+
+<p><strong>Flickering in the wind.</strong>
+A small gust of wind is enough to blow the burning gases around, changing the shape of the flame. It also alters the composition of the burning gases (as the wind gets stronger, more air gets mixed with vaporized wax). This changes the intensity of the flame, and, in the extreme case, may extinguish the candle.</p>
+
+<p><strong>Shimmering.</strong>
+The stream of hot air that rises from a candle flame may make the background shimmer. This happens because hot air has a different refractive index from the surrounding air, causing rays that pass through the stream of hot air rising from a candle flame to bend.</p>
+
+<p><strong>Melting.</strong>
+When wax melts, its optical properties change: it becomes transparent (less scattering, more transmittance) and the surface becomes smooth (so reflectance becomes more specular and less diffuse). It may also drip down the side of the candle.</p>
+
+<h3>
+<a id="proposal" class="anchor" href="#proposal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Proposal</h3>
+
+<p>My goal for this project is to render a <strong>static</strong> scene with a candle, which means that I will ignore shimmering, melting and physical simulation of hot gas. This would involve:</p>
+
+<ol>
+<li><p>Creating an explicit mesh representation of a candle and its flame. This should capture the shape of the flame and the candle, as well as their optical properties (e.g. for the flame, triangles closer to the base of the flame should be quite transparent and emit blue light at a low intensity, and triangles in the main part of the flame should emit yellow light at a high intensity). The candle's representation should also have parameters to support for sub-surface scattering. After this is done, the renderer should be able to do a very basic rendering of a scene with a candle in it.</p></li>
+<li><p>Implement sub-surface scattering. This would involve modifying the ray-tracer to allow light to scatter within objects. After this is done, the wax beneath the candle flame should glow.</p></li>
+</ol>
+
+<h3>
+<a id="stretch-goal" class="anchor" href="#stretch-goal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Stretch goal</h3>
+
+<ol>
+<li>Simulate the flickering and movement of a candle flame. I'm not sure what would be the best way to do this. One option would be to do a simulation (particle-based?) of the burning gases in the candle flame, taking into account forces of convection and wind. Another option would be to do a simple keyframe-based animation, but this would not be very interesting.</li>
+</ol>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/mattlkf/candlelight">Candlelight</a> is maintained by <a href="https://github.com/mattlkf">mattlkf</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
