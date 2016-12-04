@@ -54,7 +54,7 @@ When wax melts, its optical properties change: it becomes transparent (less scat
 <p>My goal for this project is to render a <strong>static</strong> scene with a candle, which means that I will ignore shimmering, melting and physical simulation of hot gas. This would involve:</p>
 
 <ol>
-<li><p>Creating an explicit mesh representation of a candle and its flame. This should capture the shape of the flame and the candle, as well as their optical properties (e.g. for the flame, triangles closer to the base of the flame should be quite transparent and emit blue light at a low intensity, and triangles in the main part of the flame should emit yellow light at a high intensity). The candle's representation should also have parameters to support for sub-surface scattering. After this is done, the renderer should be able to do a very basic rendering of a scene with a candle in it.</p></li>
+<li><p>Creating an explicit mesh representation of a candle and its flame. This should capture the shape of the flame and the candle, as well as their optical properties (e.g. for the flame, triangles closer to the base of the flame should be quite transparent and emit blue light at a low intensity, and triangles in the main part of the flame should emit yellow light at a high intensity). The candle's representation should also have parameters to support sub-surface scattering. After this is done, the renderer should be able to do a very basic rendering of a scene with a candle in it.</p></li>
 <li><p>Implement sub-surface scattering. This would involve modifying the ray-tracer to allow light to scatter within objects. After this is done, the wax beneath the candle flame should glow.</p></li>
 </ol>
 
