@@ -73,11 +73,15 @@ When wax melts, its optical properties change: it becomes transparent (less scat
 
 <p>I eventually ended up implementing sub-surface scattering using the technique described in "A practical model for subsurface light transport" and "A rapid hierarchical rendering technique for translucent materials.", both by Jensen and Buhler. The high-level idea in the first paper is that although subsurface light transport is due to a large number of scattering events, in practice it can be well approximated by a diffusion term, based on a dipole light source, and a single-scattering term. The second paper explains how to efficiently compute the diffusion term. Much like in the Barnes-Hut N-Body simulation, a octtree (i.e. a K-D tree with 3 dimensions) is used to speed up the computation of far-away points to the exitant radiance at a sampled point, at the expense of minor inaccuracies.</p>
 
+<p>Here are some images from my implementation of their method:</p>
+
+<p>A mesh with points uniformly sampled on its surface. These points formed the leaf nodes of the octtree.</p>
+
 <p><img src="https://www.dropbox.com/s/bze8yxhwelodghc/wax_gems_one_sampled_close_up.png?raw=1" alt="Sampled surface of gem"></p>
 
+<p>An example of a rendered scene. The <strong>.dae</strong> file of the CBgems model has been edited to give the front gem a Wax material. Diffusion of red and blue at the sides of the front gem can be seen.</p>
 
-
-
+<p><img src="https://www.dropbox.com/s/bm5hq82uwpt77ql/result.png?raw=1" alt="Waxy gem"></p>
 
 
 
